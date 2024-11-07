@@ -7,20 +7,12 @@ Data obtained from MLS/Aura satellite via GESDISC website
 - interpolated_datagenerator.py - data generator for interpolated model
 - InterpolatedDenseModel1.ipynb - ConvNet that uses a lienar interpolation 
 - DenseModel2.ipynb - ConvNet that uses a mask 
+- CustomMSE.py - custom loss functions with which to train the masked model and evaluate the models
 
 
 
-#### other stuff:
-
-wget --load-cookies C:\Users\simma362\.urs_cookies --save-cookies C:\Users\simma362\.urs_cookies --auth-no-challenge=on --keep-session-cookies --user=moodle --password=Max8450335#! -i C:\Users\simma362\Desktop\Code\KessenichScripts\Link-Lists\HNO3url.txt
-
-Available date range:
-2004 d246 - 2024 d027
-
-Enter desired date range as:
-[yyyyddd, yyyyddd]
-
-
-Curr things to change later:
-- Interpolated datagenerator: __get_item__ method hard coded so that it will only check for 308 channels
+### bad coding / hacks to check if running:
+- data generators will just concatenate missing channels if they do not meet a hard coded no. channels i.e. line 210-211 in interpolated_datagenerator.py 
+- with this i just check how many channels there were in a typical batch without this hard coded concatenation, and then just set the hard coded no. channels (expected_channels) to be that number
+- it can be done better but it works 
 
